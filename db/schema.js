@@ -20,6 +20,12 @@ const typeDefs = gql `
 
     type Query {
         obtenerProyectos : [Proyecto]
+
+        obtenerTareas(input: ProyectoIDInput) : [Tarea]
+    }
+
+    input ProyectoIDInput {
+        proyecto: String!
     }
 
     input UsuarioInput {
@@ -54,6 +60,8 @@ const typeDefs = gql `
 
         # Tareas
         nuevaTarea(input: TareaInput) : Tarea
+        actualizarTarea(id: ID!, input: TareaInput, estado: Boolean ) : Tarea
+        eliminarTarea(id: ID!) : String
     }
 
 `;
